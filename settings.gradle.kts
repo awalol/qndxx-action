@@ -1,0 +1,2 @@
+rootProject.name = "qndxx-action"
+
