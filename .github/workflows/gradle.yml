@@ -28,4 +28,4 @@ jobs:
     - name: Output jar with Gradle
       run: ./gradlew shadowJar
     - name: Run Jar
-      run: java -jar ./build/libs/qndxx-action-1.0-SNAPSHOT-all.jar ${{ secrets.USERNAME }} ${{ secrets.USERID }}
+      run: java -jar ./build/libs/qndxx-action-1.0-SNAPSHOT-all.jar '${{ secrets.USERNAME }}' '${{ secrets.USERID }}'
