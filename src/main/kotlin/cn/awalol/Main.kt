@@ -26,7 +26,7 @@ object Main {
                 if(learnData.isLearned!!.not()){
                     learnHit(learnData.learnContent!!.id.toString(),cookie)
                 }else{
-                    println("$i 您已学习过了")
+                    println("$i $userNameList[i] 您已学习过了")
                 }
             }
         }else{ //单人
