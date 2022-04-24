@@ -22,7 +22,6 @@ object Main {
             val userNameList = userName.split("|")
             for(i in 0 .. userNameList.lastIndex){
                 val cookie = login(userNameList[i],userId.split("|")[i])
-                println(userNameList[i])
                 val learnData = getLearnData(cookie)
                 if(learnData.isLearned!!.not()){
                     learnHit(learnData.learnContent!!.id.toString(),cookie)
@@ -46,7 +45,9 @@ object Main {
         val httpPost = HttpPost("http://qndxx.bestcood.com/mp/WeixinAuth/LoginByUser2.html")
         val nameValuePairList: MutableList<NameValuePair> = ArrayList()
         nameValuePairList.add(BasicNameValuePair("userName", userName))
+        println(userName)
         nameValuePairList.add(BasicNameValuePair("userId", userId))
+        println(userId)
         httpPost.entity = UrlEncodedFormEntity(nameValuePairList, "UTF-8")
         val httpResponse: HttpResponse = httpClient.execute(httpPost)
         println(EntityUtils.toString(httpResponse.entity))
