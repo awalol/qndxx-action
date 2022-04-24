@@ -22,12 +22,16 @@ object Main {
             val userNameList = userName.split("|")
             for(i in 0 .. userNameList.lastIndex){
                 val cookie = login(userNameList[i],userId.split("|")[i])
+                println(userNameList[i])
+                if (cookie=null){
+                    continue;
+                }
                 val learnData = getLearnData(cookie)
                 if(learnData.isLearned!!.not()){
                     learnHit(learnData.learnContent!!.id.toString(),cookie)
                 }else{
                     println("$i 您已学习过了")
-                    println(userNameList[i])
+                    //println(userNameList[i])
                 }
             }
         }else{ //单人
