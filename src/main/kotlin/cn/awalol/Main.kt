@@ -27,6 +27,7 @@ object Main {
                     learnHit(learnData.learnContent!!.id.toString(),cookie)
                 }else{
                     println("$i 您已学习过了")
+                    //println(userNameList[i])
                 }
             }
         }else{ //单人
@@ -44,7 +45,9 @@ object Main {
         val httpPost = HttpPost("http://qndxx.bestcood.com/mp/WeixinAuth/LoginByUser2.html")
         val nameValuePairList: MutableList<NameValuePair> = ArrayList()
         nameValuePairList.add(BasicNameValuePair("userName", userName))
+        println(userName)
         nameValuePairList.add(BasicNameValuePair("userId", userId))
+        println(userId)
         httpPost.entity = UrlEncodedFormEntity(nameValuePairList, "UTF-8")
         val httpResponse: HttpResponse = httpClient.execute(httpPost)
         println(EntityUtils.toString(httpResponse.entity))
